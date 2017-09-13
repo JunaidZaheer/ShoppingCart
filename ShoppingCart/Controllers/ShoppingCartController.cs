@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -65,6 +65,7 @@ namespace ShoppingCartSPA1.Controllers
         [Route("api/GetCart")]
         public ShoppingCart GetCart()
         {
+
             return HttpContext.Current.Session["sc"] as ShoppingCart;
         }
     }

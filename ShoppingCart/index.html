@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Au<!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -150,6 +150,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
 
+
+
+
+
     <script>
     function GetProducts() {
         var xhr = new XMLHttpRequest();
@@ -186,50 +190,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         xhr.onload = function () {
             if (xhr.response && xhr.response != '') {
-                alert("Item Successfully Add");
                 
+            
             }
         };
-
+        
         xhr.send(null);
     }
     </script>
 
 
+
+
     <script>
-    
-            var sc = null;
-    
-            function GetCart() {
-                  var xhr = new XMLHttpRequest();
-                    xhr.open('Get', 'api/GetCart');
-        
-                    xhr.onload = function () {
-                           if (xhr.response && xhr.response != '') {
-                                   var product = JSON.parse(xhr.response);
+
+        var sc = null;
+
+        function GetCart() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('Get', 'api/GetCart');
+
+            xhr.onload = function () {
+                if (xhr.response && xhr.response != '') {
+                    var product = JSON.parse(xhr.response);
+
+
+
+                    var cartproducts = document.getElementById('cartproducts');
+
+                    cartproducts.innerHTML = '';
+                    var htmlcode = '';
+
+                    for (var i = 0; i < product.length; i++) {
+                        var pro = document.getElementById('cartpro').innerHTML;
+                        pro  = pro.replace('{{Name}}', product.Name[1].Name);
                 
-                
-                
-                                    var cartproducts = document.getElementById('cartproducts');
-                
-                                    cartproducts.innerHTML = '';
-                                    var htmlcode = '';
-                
-                                    for (var i = 0; i < product.length; i++) {
-                                           var pro = document.getElementById('cartpro').innerHTML;
-                                            pro  = pro.replace('{{Name}}', product.Name[1].Name);
-                    
-                                            pro = pro.replace('{{Id}}', product.Id[i].Id);
-                                            cartproducts.innerHTML += pro;
-                    
-                                       }
-                                }
-                        };
-        
-                    xhr.send(null);
+                        pro = pro.replace('{{Id}}', product.Id[i].Id);
+                        cartproducts.innerHTML += pro;
+
+                    }
                 }
+            };
+
+            xhr.send(null);
+        }
     
-        </script>
+    </script>
+
 
 
 
@@ -340,9 +347,7 @@ $(document).ready(function(c) {
                     </div>-->
                 
                 </div>
-                
-               
-
+             
                 
             </div>
         </div>
