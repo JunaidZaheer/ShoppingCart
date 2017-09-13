@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Au<!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="size">XL / XXL / S </span>
                     <p><del>$100.00</del><em class="item_price">${{Price}}</em></p>
                     
-                    <button class="btn btn-success" onclick="AddToCart()">Add To Cart     <i class="fa fa-shopping-cart"></i></button>
+                    <button class="btn btn-success" onclick="AddToCart({{Id}})">Add To Cart     <i class="fa fa-shopping-cart"></i></button>
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
 
-    <!--<script type="text/html" id="cartpro">
+    <script type="text/html" id="cartpro">
 
         <div class="cart-sec simpleCart_shelfItem">
             <div class="cart-item cyc">
@@ -148,7 +148,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
 
-    </script>-->
+    </script>
+
+
+
+
 
     <script>
     function GetProducts() {
@@ -186,30 +190,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         xhr.onload = function () {
             if (xhr.response && xhr.response != '') {
-                alert("Item Successfully Add");
-                //return;
-                //var product = JSON.parse(xhr.response);
-
-                //var cartproducts = document.getElementById('cartproducts');
-
-                //cartproducts.innerHTML = '';
-                //var htmlcode = '';
-
-                //for (var i = 0; i < product.length; i++) {
-                //    var pro = document.getElementById('cartpro').innerHTML;
-                //    pro  = pro.replace('{{Name}}', product[i].Name);
-                //    pro = pro.replace('{{Price}}', product[i].Price);
-                //    pro = pro.replace('{{Image}}', product[i].Imageurl);
-                //    pro = pro.replace('{{Id}}', product[i].Id);
-                //    cartproducts.innerHTML += pro;
-                //}
+                
+            
             }
         };
-
+        
         xhr.send(null);
     }
     </script>
 
+
+
+
+    <script>
+
+        var sc = null;
+
+        function GetCart() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('Get', 'api/GetCart');
+
+            xhr.onload = function () {
+                if (xhr.response && xhr.response != '') {
+                    var product = JSON.parse(xhr.response);
+
+
+
+                    var cartproducts = document.getElementById('cartproducts');
+
+                    cartproducts.innerHTML = '';
+                    var htmlcode = '';
+
+                    for (var i = 0; i < product.length; i++) {
+                        var pro = document.getElementById('cartpro').innerHTML;
+                        pro  = pro.replace('{{Name}}', product.Name[1].Name);
+                
+                        pro = pro.replace('{{Id}}', product.Id[i].Id);
+                        cartproducts.innerHTML += pro;
+
+                    }
+                }
+            };
+
+            xhr.send(null);
+        }
+    
+    </script>
 
 
 
@@ -300,7 +326,7 @@ $(document).ready(function(c) {
                 </script>
                 <div id="cartproducts" class="cart-header">
                     <div class="close1"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
+                    <!--<div class="cart-sec simpleCart_shelfItem">
                         <div class="cart-item cyc">
                             <img src="images/i1.jpg" class="img-responsive" alt="">
                         </div>
@@ -318,112 +344,10 @@ $(document).ready(function(c) {
                         </div>
                         <div class="clearfix"></div>
 
-                    </div>
+                    </div>-->
                 
                 </div>
-                
-                
-                <script>
-    $(document).ready(function (c) {
-        $('.close1').on('click', function (c) {
-            $('.cart-header').fadeOut('slow', function (c) {
-                $('.cart-header').remove();
-            });
-        });
-    });
-                </script>
-                <div id="cartproducts" class="cart-header">
-                    <div class="close1"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/i13.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                    </div>
-
-                </div>
-
-
-                <script>
-    $(document).ready(function (c) {
-        $('.close1').on('click', function (c) {
-            $('.cart-header').fadeOut('slow', function (c) {
-                $('.cart-header').remove();
-            });
-        });
-    });
-                </script>
-                <div id="cartproducts" class="cart-header">
-                    <div class="close1"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/r4.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                    </div>
-
-                </div>
-
-
-                <script>
-    $(document).ready(function (c) {
-        $('.close1').on('click', function (c) {
-            $('.cart-header').fadeOut('slow', function (c) {
-                $('.cart-header').remove();
-            });
-        });
-    });
-                </script>
-                <div id="cartproducts" class="cart-header">
-                    <div class="close1"> </div>
-                    <div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/p29.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                    </div>
-
-                </div>
-
+             
                 
             </div>
         </div>
