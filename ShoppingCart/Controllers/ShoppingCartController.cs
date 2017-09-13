@@ -66,7 +66,7 @@ namespace ShoppingCartSPA1.Controllers
         public ShoppingCart GetCart()
         {
 
-           
+            return HttpContext.Current.Session["sc"] as ShoppingCart;
         }
     }
 }
