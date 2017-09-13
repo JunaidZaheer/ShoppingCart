@@ -117,7 +117,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h6>{{Name}}</h6>
                     <span class="size">XL / XXL / S </span>
                     <p><del>$100.00</del><em class="item_price">${{Price}}</em></p>
-                    <a href="" data-text="Add To Cart" class="my-cart-b item_add" onclick="AddToCart({{{Id}})">Add To Cart</a>
+                    
+                    <button class="btn btn-success" onclick="AddToCart()">Add To Cart     <i class="fa fa-shopping-cart"></i></button>
                 </div>
             </div>
         </div>
@@ -125,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
 
-    <script type="text/html" id="cartpro">
+    <!--<script type="text/html" id="cartpro">
 
         <div class="cart-sec simpleCart_shelfItem">
             <div class="cart-item cyc">
@@ -147,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
 
-    </script>
+    </script>-->
 
     <script>
     function GetProducts() {
@@ -185,23 +186,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         xhr.onload = function () {
             if (xhr.response && xhr.response != '') {
-                alert("error");
-                return;
-                var product = JSON.parse(xhr.response);
+                alert("Item Successfully Add");
+                //return;
+                //var product = JSON.parse(xhr.response);
 
-                var cartproducts = document.getElementById('cartproducts');
+                //var cartproducts = document.getElementById('cartproducts');
 
-                cartproducts.innerHTML = '';
-                var htmlcode = '';
+                //cartproducts.innerHTML = '';
+                //var htmlcode = '';
 
-                for (var i = 0; i < product.length; i++) {
-                    var pro = document.getElementById('cartpro').innerHTML;
-                    pro  = pro.replace('{{Name}}', product[i].Name);
-                    pro = pro.replace('{{Price}}', product[i].Price);
-                    pro = pro.replace('{{Image}}', product[i].Imageurl);
-                    pro = pro.replace('{{Id}}', product[i].Id);
-                    cartproducts.innerHTML += pro;
-                }
+                //for (var i = 0; i < product.length; i++) {
+                //    var pro = document.getElementById('cartpro').innerHTML;
+                //    pro  = pro.replace('{{Name}}', product[i].Name);
+                //    pro = pro.replace('{{Price}}', product[i].Price);
+                //    pro = pro.replace('{{Image}}', product[i].Imageurl);
+                //    pro = pro.replace('{{Id}}', product[i].Id);
+                //    cartproducts.innerHTML += pro;
+                //}
             }
         };
 
@@ -234,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a>
                         <h3>
                             <div class="total">
-                                <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                                <span ></span> (<span></span> items)
                             </div>
                             <img onclick="showcart()" src="images/bag.png" alt="" />
                         </h3>
@@ -287,7 +288,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="cart" style="display:none" class="content">
         <div class="cart-items">
             <div class="container">
-                <h2>My Shopping Bag (3)</h2>
+                <h2>My Shopping Bag</h2>
                 <script>
 $(document).ready(function(c) {
     $('.close1').on('click', function(c){
@@ -299,9 +300,9 @@ $(document).ready(function(c) {
                 </script>
                 <div id="cartproducts" class="cart-header">
                     <div class="close1"> </div>
-                    <!--<div class="cart-sec simpleCart_shelfItem">
+                    <div class="cart-sec simpleCart_shelfItem">
                         <div class="cart-item cyc">
-                            <img src="images/p15.jpg" class="img-responsive" alt="">
+                            <img src="images/i1.jpg" class="img-responsive" alt="">
                         </div>
                         <div class="cart-item-info">
                             <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
@@ -317,11 +318,112 @@ $(document).ready(function(c) {
                         </div>
                         <div class="clearfix"></div>
 
-                    </div>-->
+                    </div>
+                
                 </div>
                 
                 
-                
+                <script>
+    $(document).ready(function (c) {
+        $('.close1').on('click', function (c) {
+            $('.cart-header').fadeOut('slow', function (c) {
+                $('.cart-header').remove();
+            });
+        });
+    });
+                </script>
+                <div id="cartproducts" class="cart-header">
+                    <div class="close1"> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="images/i13.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+                            <ul class="qty">
+                                <li><p>Min. order value:</p></li>
+                                <li><p>FREE delivery</p></li>
+                            </ul>
+                            <div class="delivery">
+                                <p>Service Charges : $10.00</p>
+                                <span>Delivered in 1-1:30 hours</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+
+
+                <script>
+    $(document).ready(function (c) {
+        $('.close1').on('click', function (c) {
+            $('.cart-header').fadeOut('slow', function (c) {
+                $('.cart-header').remove();
+            });
+        });
+    });
+                </script>
+                <div id="cartproducts" class="cart-header">
+                    <div class="close1"> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="images/r4.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+                            <ul class="qty">
+                                <li><p>Min. order value:</p></li>
+                                <li><p>FREE delivery</p></li>
+                            </ul>
+                            <div class="delivery">
+                                <p>Service Charges : $10.00</p>
+                                <span>Delivered in 1-1:30 hours</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+
+
+                <script>
+    $(document).ready(function (c) {
+        $('.close1').on('click', function (c) {
+            $('.cart-header').fadeOut('slow', function (c) {
+                $('.cart-header').remove();
+            });
+        });
+    });
+                </script>
+                <div id="cartproducts" class="cart-header">
+                    <div class="close1"> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="images/p29.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+                            <ul class="qty">
+                                <li><p>Min. order value:</p></li>
+                                <li><p>FREE delivery</p></li>
+                            </ul>
+                            <div class="delivery">
+                                <p>Service Charges : $10.00</p>
+                                <span>Delivered in 1-1:30 hours</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+
                 
             </div>
         </div>
