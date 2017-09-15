@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 Au<!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>New Shop a E-Commerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Online Shopping</title>
 <!--css-->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -70,31 +70,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//End-rate-->
     
    
-    <script>
-        function showproduct() {
-            var a = document.getElementById('cart');
-            a.style.display='none';
-        var x = document.getElementById('product');
-        
-        if (x.style.display === 'none') {
-            x.style.display = 'block';
-        } 
-    }
-    </script>
+    
 
-    <script>
-        function showcart() {
-            var b = document.getElementById('product');
-            b.style.display='none';
-        var y = document.getElementById('cart');
-      
-       
-        if (y.style.display === 'none') {
-            y.style.display = 'block';
-        }  
-    }
-    </script>
-
+    
+    <!-- Index.html script-->
 
     <script type="text/html" id="producttr">
         <div class="col-md-3 arrival-grid simpleCart_shelfItem">
@@ -118,41 +97,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="size">XL / XXL / S </span>
                     <p><del>$100.00</del><em class="item_price">${{Price}}</em></p>
                     
-                    <button class="btn btn-success" onclick="AddToCart({{Id}})">Add To Cart     <i class="fa fa-shopping-cart"></i></button>
-                </div>
+                    <button data-text="Add To Cart" class="btn btn-success item_add" onclick="AddToCart({{Id}})">Add To Cart     <i class="fa fa-shopping-cart"></i></button>
+                    
+                 </div>
             </div>
         </div>
 
 
     </script>
-
-    <script type="text/html" id="cartpro">
-
-        <div class="cart-sec simpleCart_shelfItem">
-            <div class="cart-item cyc">
-                <img src="/Images/{{Image}}" class="img-responsive" alt="">
-            </div>
-            <div class="cart-item-info">
-                <h3>{{Name}}<span>Pickup time:</span></h3>
-                <ul class="qty">
-                    <li><p>Min. order value:</p></li>
-                    <li><p>FREE delivery</p></li>
-                </ul>
-                <div class="delivery">
-                    <p>Service Charges : ${{Price}}</p>
-                    <span><script></script></span>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-
-        </div>
-
-    </script>
-
-
-
-
 
     <script>
     function GetProducts() {
@@ -190,7 +142,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         xhr.onload = function () {
             if (xhr.response && xhr.response != '') {
-                
+                //var producttr = document.getElementById('producttr').innerHTML;
+                //producttr = producttr.replace('{{Id}}', products[i].Id);
             
             }
         };
@@ -199,47 +152,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
     </script>
 
-
-
-
-    <script>
-
-        var sc = null;
-
-        function GetCart() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('Get', 'api/GetCart');
-
-            xhr.onload = function () {
-                if (xhr.response && xhr.response != '') {
-                    var product = JSON.parse(xhr.response);
-
-
-
-                    var cartproducts = document.getElementById('cartproducts');
-
-                    cartproducts.innerHTML = '';
-                    var htmlcode = '';
-
-                    for (var i = 0; i < product.length; i++) {
-                        var pro = document.getElementById('cartpro').innerHTML;
-                        pro  = pro.replace('{{Name}}', product.Name[1].Name);
-                
-                        pro = pro.replace('{{Id}}', product.Id[i].Id);
-                        cartproducts.innerHTML += pro;
-
-                    }
-                }
-            };
-
-            xhr.send(null);
-        }
+   
     
-    </script>
+    
+    
 
 
-
-
+ 
 </head>
 <body onload="GetProducts()">
     <!--header-->
@@ -252,21 +171,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="top-right">
                     <ul>
-                        <li><a  onclick="showproduct()">Products</a></li>
-                        <li><a  onclick="showcart()">Cart</a></li>
-                        <li><a> Check Out </a></li>
+                        <li><a href="index.html">Products</a></li>
+                        <li><a href="mycheckout.html">Cart</a></li>
+                        <li><a> Checkout </a></li>
+                        
                     </ul>
                 </div>
                 <div class="cart box_1">
-                    <a>
+                    <a href="checkout.html">
                         <h3>
                             <div class="total">
-                                <span ></span> (<span></span> items)
+                                <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
                             </div>
-                            <img onclick="showcart()" src="images/bag.png" alt="" />
+                            <img src="images/bag.png" alt="" />
                         </h3>
                     </a>
-                    <p><a href="javascript:;"  class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                     <div class="clearfix"> </div>
                 </div>
 
@@ -276,8 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </div>
     <!--header-->
-    <!--banner-->
-    <!--banner-->
+    
     <!--content-->
     <div id="product" class="content">
         <!--banner-bottom-->
@@ -311,67 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
     <!-- content checkout -->
-    <div id="cart" style="display:none" class="content">
-        <div class="cart-items">
-            <div class="container">
-                <h2>My Shopping Bag</h2>
-                <script>
-$(document).ready(function(c) {
-    $('.close1').on('click', function(c){
-        $('.cart-header').fadeOut('slow', function(c){
-            $('.cart-header').remove();
-        });
-    });
-});
-                </script>
-                <div id="cartproducts" class="cart-header">
-                    <div class="close1"> </div>
-                    <!--<div class="cart-sec simpleCart_shelfItem">
-                        <div class="cart-item cyc">
-                            <img src="images/i1.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="cart-item-info">
-                            <h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-                            <ul class="qty">
-                                <li><p>Min. order value:</p></li>
-                                <li><p>FREE delivery</p></li>
-                            </ul>
-                            <div class="delivery">
-                                <p>Service Charges : $10.00</p>
-                                <span>Delivered in 1-1:30 hours</span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                    </div>-->
-                
-                </div>
-             
-                
-            </div>
-        </div>
-        <!-- checkout -->
-    </div>
-
-
-
-    <!--content-->
-    <!---footer--->
-    <!---footer--->
-    <!--copy-->
-    <div class="copy-section">
-        <div class="container">
-            <div class="copy-left">
-                <p>&copy; 2016 New Shop . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-            </div>
-            <div class="copy-right">
-                <img src="images/card.png" alt="" />
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-    <!--copy-->
+    
     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-info">
