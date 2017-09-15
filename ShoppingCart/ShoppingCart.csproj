@@ -211,8 +211,10 @@
     <Content Include="images\woo2.jpg" />
     <Content Include="images\woo3.jpg" />
     <Content Include="images\woo4.jpg" />
+    <Content Include="mycheckout.html" />
     <Content Include="index.html" />
     <Content Include="index1.html" />
+    <Content Include="indexoriginal.html" />
     <Content Include="js\bootstrap-3.1.1.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\coreSlider.js" />
