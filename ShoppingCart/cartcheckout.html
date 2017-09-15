@@ -69,98 +69,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--//End-rate-->
     
-   
+  
     
 
-    
-    <!-- Index.html script-->
-
-    <script type="text/html" id="producttr">
-        <div class="col-md-3 arrival-grid simpleCart_shelfItem">
-            <div class="grid-arr">
-                <div class="grid-arrival">
-                    <figure>
-                        <a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
-
-                            <div class="grid-img">
-                                <img src="/Images/{{Image}}" class="img-responsive" alt="">
-                            </div>
-                        </a>
-                    </figure>
-                </div>
-
-                <div class="block">
-                    <div class="starbox small ghosting"> </div> 
-                </div>
-                <div class="women">
-                    <h6>{{Name}}</h6>
-                    <span class="size">XL / XXL / S </span>
-                    <p><del>$100.00</del><em class="item_price">${{Price}}</em></p>
-                    
-                    <button data-text="Add To Cart" class="btn btn-success item_add" onclick="AddToCart({{Id}})">Add To Cart     <i class="fa fa-shopping-cart"></i></button>
-                    
-                 </div>
-            </div>
-        </div>
-
-
-    </script>
-
-    <script>
-    function GetProducts() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('Get', 'api/GetProducts');
-
-        xhr.onload = function () {
-            if (xhr.response && xhr.response != '') {
-                var products = JSON.parse(xhr.response);
-
-                var mainbody = document.getElementById('mainbody');
-
-                mainbody.innerHTML = '';
-                var htmlcode = '';
-
-                for (var i = 0; i < products.length; i++) {
-                    var producttr = document.getElementById('producttr').innerHTML;
-                    producttr = producttr.replace('{{Name}}', products[i].Name);
-                    producttr = producttr.replace('{{Price}}', products[i].Price);
-                    producttr = producttr.replace('{{Image}}', products[i].Imageurl);
-                    producttr = producttr.replace('{{Id}}', products[i].Id);
-                    mainbody.innerHTML += producttr;
-                }
-            }
-        };
-
-        xhr.send(null);
-
-    }
-
-    function AddToCart(pid) {
-       
-        var xhr = new XMLHttpRequest();
-        xhr.open('Get', 'api/AddToCart/'+pid);
-
-        xhr.onload = function () {
-            if (xhr.response && xhr.response != '') {
-                //var producttr = document.getElementById('producttr').innerHTML;
-                //producttr = producttr.replace('{{Id}}', products[i].Id);
-            
-            }
-        };
-        
-        xhr.send(null);
-    }
-    </script>
-
-   
-    
-    
-    
-
-
- 
 </head>
-<body onload="GetProducts()">
+<body>
     <!--header-->
     <div class="header">
         <div class="header-top">
@@ -171,10 +84,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="top-right">
                     <ul>
-                        <li><a href="index.html">Products</a></li>
+                        <li><a  href="index.html">Products</a></li>
                         <li><a href="mycheckout.html">Cart</a></li>
-                        <li><a href="cartcheckout.html"> Checkout </a></li>
-                        
+                        <li><a href="cartcheckout.html"> Check Out </a></li>
                     </ul>
                 </div>
                 <div class="cart box_1">
@@ -186,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img src="images/bag.png" alt="" />
                         </h3>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="javascript:;"  class="simpleCart_empty">Empty Cart</a></p>
                     <div class="clearfix"> </div>
                 </div>
 
@@ -198,39 +110,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--header-->
     
     <!--content-->
-    <div id="product" class="content">
-        <!--banner-bottom-->
-        <!--banner-bottom-->
-        <!--new-arrivals-->
-        <div class="new-arrivals-w3agile">
+    <div class="content">
+        <div class="cart-items">
             <div class="container">
-                <h2 class="tittle">Products</h2>
-                <div id="mainbody" class="arrivals-grids">
-                    
+                <h2>My Cart List</h2>
+                
+                
 
 
-
-                    <div class="clearfix"></div>
-                </div>
             </div>
         </div>
-        <!--new-arrivals-->
-        <!--accessories-->
-        <!--accessories-->
-        <!--Products-->
-        <!--Products-->
-        <!--new-arrivals-->
-
-
-
-        
-
-
-
+        <!-- checkout -->
     </div>
 
     <!-- content checkout -->
     
+    
+ 
     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-info">

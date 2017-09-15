@@ -113,10 +113,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     for (var i = 0; i < cart.length; i++) {
                         var cartpro = document.getElementById('cartpro').innerHTML;
-                        cartpro = cartpro.replace('{{Name}}', cart[i].Products.Name);
-                        cartpro = cartpro.replace('{{Image}}', cart[i].Products.Imageurl);
-                        cartpro = cartpro.replace('{{Price}}', cart[i].Products.Price);
-                        cartpro = cartpro.replace('{{Id}}', cart[i].Products.value.Id);
+                        cartpro = cartpro.replace('{{Name}}', cart[i].Product.Name);
+                        cartpro = cartpro.replace('{{Image}}', cart[i].Product.Imageurl);
+                        cartpro = cartpro.replace('{{Price}}', cart[i].Product.Price);
+                        cartpro = cartpro.replace('{{Id}}', cart[i].Product.Id);
                        cartproducts.innerHTML += cartpro;
 
                     }
@@ -141,8 +141,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="top-right">
                     <ul>
                         <li><a  href="index.html">Products</a></li>
-                        <li><a href="mycheckout.html" onclick="GetCart()">Cart</a></li>
-                        <li><a> Check Out </a></li>
+                        <li><a href="mycheckout.html">Cart</a></li>
+                        <li><a href="cartcheckout.html"> Checkout </a></li>
                     </ul>
                 </div>
                 <div class="cart box_1">

@@ -211,6 +211,7 @@
     <Content Include="images\woo2.jpg" />
     <Content Include="images\woo3.jpg" />
     <Content Include="images\woo4.jpg" />
+    <Content Include="cartcheckout.html" />
     <Content Include="mycheckout.html" />
     <Content Include="index.html" />
     <Content Include="index1.html" />
