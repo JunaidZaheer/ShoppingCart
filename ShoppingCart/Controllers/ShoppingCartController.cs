@@ -56,9 +56,19 @@ namespace ShoppingCartSPA1.Controllers
             item.Count = 1;
             item.Product = prod;
 
-            sc.Items.Add(item);
+            var product = sc.Items.Find(i => i.Product.Id == Id);
+            if (product != null)
+            {
+                product.Count++;
+
+            }
+            else {
+                sc.Items.Add(item);
+            }
+          
 
             HttpContext.Current.Session["sc"] = sc;
+          
         }
 
         [HttpGet]
