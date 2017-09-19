@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3>{{Name}}</h3>
                
                 <ul class="qty">
-                    <li><p>Min. order value:Qty</p></li>
+                    <li><p>Min. order value: {{Qty}}</p></li>
                     <li><p>FREE delivery</p></li>
                 </ul>
                 <div class="delivery">
@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         cartpro = cartpro.replace('{{Image}}', cart.Items[i].Product.Imageurl);
                         cartpro = cartpro.replace('{{Price}}', cart.Items[i].Product.Price);
                         cartpro = cartpro.replace('{{Id}}', cart.Items[i].Product.Id);
-                        cartpro = cartpro.replace("Qty", cart.Items[i].Count);
+                        cartpro = cartpro.replace('{{Qty}}', cart.Items[i].Count);
                         cartproducts.innerHTML += cartpro;
 
                     }
